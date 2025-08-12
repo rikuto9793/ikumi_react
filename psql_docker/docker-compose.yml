@@ -1,0 +1,16 @@
+# docker-compose.yml
+
+services:
+  db:
+    image: postgres:15 # ✅ PostgreSQLのバージョンを15に変更
+    container_name: ikumi-rails-app-db
+    ports:
+      - "5432:5432" # デフォルトだと5432:5432
+    environment:
+      POSTGRES_USER: mmr_ikumi
+      POSTGRES_PASSWORD: mmr123db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
